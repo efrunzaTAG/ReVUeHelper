@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReVUeHelper_Explore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1790deac361600fb508345db94552e6b2ee6752")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+033f5fa932bae81666fed0567190cf4f48c14882")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReVUeHelper_Explore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReVUeHelper_Explore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,7 +1,11 @@
-﻿using System;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ReVUeHelper_Explore;
 
@@ -11,131 +15,145 @@ namespace ElevationApiExample
     {
         private static readonly HttpClient httpClient = new HttpClient();
 
-        public class BingElevationResponse
-        {
-            public string AuthenticationResultCode { get; set; }
-            public string BrandLogoUri { get; set; }
-            public string Copyright { get; set; }
-            public List<ResourceSet> ResourceSets { get; set; }
-            public int StatusCode { get; set; }
-            public string StatusDescription { get; set; }
-            public string TraceId { get; set; }
-        }
+        // Google Elevation API: $5 per 1,000 requests
+        const double GoogleCostPerCall = 0.005;
+        const int    GoogleConcurrency = 5;
+        const string GoogleApiKeyEnvVar = "GOOGLE_ELEVATION_API_KEY";
 
-        public class ResourceSet
-        {
-            public int EstimatedTotal { get; set; }
-            public List<Resource> Resources { get; set; }
-        }
-
-        public class Resource
-        {
-            public string __type { get; set; }
-            public List<double> Elevations { get; set; }
-            public int ZoomLevel { get; set; }
-        }
-
-        
+        static readonly string DefaultExcelPath =
+            @"C:\Users\efrunza\source\repos\efrunzaTAG\ReVUeHelper\.claude\MSR_Houston_FL_excl_Orlando.xlsx";
 
         static async Task Main(string[] args)
         {
+            string? apiKey = Environment.GetEnvironmentVariable(GoogleApiKeyEnvVar);
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                Console.WriteLine($"ERROR: env var {GoogleApiKeyEnvVar} not set.");
+                Console.WriteLine($"Set it (PowerShell): $env:{GoogleApiKeyEnvVar} = '<your-key>'");
+                return;
+            }
+
+            string excelPath = args.Length > 0 ? args[0] : DefaultExcelPath;
+            string outputPath = Path.Combine(
+                Path.GetDirectoryName(excelPath)!,
+                Path.GetFileNameWithoutExtension(excelPath)
+                    + "_with_elevations_"
+                    + DateTime.Now.ToString("yyyyMMdd_HHmmss")
+                    + ".xlsx");
+
             var db = new DbProxy();
 
-            var msrHomes = db.GetMsrHomes();
-            // Replace with your Google Maps Elevation API key
-            string apiKey = "AIzaSyBjEvxNiPIeQNS0OkG9VBA2RrB5r1XfdHk";
+            // 1) Read Excel
+            Console.WriteLine($"Reading {excelPath}");
+            var assetIds = ExcelHelper.ReadAssetIds(excelPath);
+            var distinctAssetIds = assetIds.Distinct().ToList();
+            Console.WriteLine($"Excel rows w/ Property ID: {assetIds.Count}  (distinct: {distinctAssetIds.Count})");
 
-            var semaphore = new SemaphoreSlim(5);
+            // 2) Constellation lookup
+            Console.WriteLine("Querying constellation (sqlBI.MerchantBankBI)...");
+            var constellationRows = db.GetConstellationData(distinctAssetIds);
+            Console.WriteLine($"Constellation matches: {constellationRows.Count}  (missing: {distinctAssetIds.Count - constellationRows.Count})");
+
+            // asset_id -> asg_prop_id   (first wins)
+            var assetToAsg = new Dictionary<long, long>();
+            foreach (var r in constellationRows)
+                if (!assetToAsg.ContainsKey(r.AssetId))
+                    assetToAsg[r.AssetId] = r.AsgPropId;
+
+            // first row per asg_prop_id (for lat/lng/cbsa)
+            var firstByAsg = new Dictionary<long, ConstellationRow>();
+            foreach (var r in constellationRows)
+                if (!firstByAsg.ContainsKey(r.AsgPropId))
+                    firstByAsg[r.AsgPropId] = r;
+            Console.WriteLine($"Distinct asg_prop_ids to resolve: {firstByAsg.Count}");
+
+            // 3) Cache lookup (across all EF_Explore_Elevations* tables on sqlDev)
+            Console.WriteLine("Loading cached elevations (DBATestBed)...");
+            var cache = db.GetCachedElevations();
+            Console.WriteLine($"Cache rows loaded: {cache.Count}");
+
+            var needGoogle = firstByAsg.Values.Where(r => !cache.ContainsKey(r.AsgPropId)).ToList();
+            int cacheHits  = firstByAsg.Count - needGoogle.Count;
+            Console.WriteLine();
+            Console.WriteLine($"  Cache hits     : {cacheHits}");
+            Console.WriteLine($"  Need Google    : {needGoogle.Count}");
+            Console.WriteLine($"  Est. cost      : ${needGoogle.Count * GoogleCostPerCall:F2}  (@ $5 per 1,000)");
+            Console.WriteLine();
+            Console.Write("Proceed with Google calls? [y/N]: ");
+            var key = Console.ReadKey();
+            Console.WriteLine();
+            if (key.KeyChar != 'y' && key.KeyChar != 'Y')
+            {
+                Console.WriteLine("Aborted before Google calls. No Excel written.");
+                return;
+            }
+
+            // 4) Google Elevation calls (results stored in _20260518 only on success)
+            var googleResults = new ConcurrentDictionary<long, double>();
+            var semaphore = new SemaphoreSlim(GoogleConcurrency);
             var tasks = new List<Task>();
-            foreach (var property in msrHomes)
+            
+            int success = 0, failed = 0;
+
+            foreach (var r in needGoogle)
             {
                 await semaphore.WaitAsync();
-
                 tasks.Add(Task.Run(async () =>
                 {
-
-                    string url = $"https://maps.googleapis.com/maps/api/elevation/json?locations={property.Latitude},{property.Longitude}&key={apiKey}";
-
                     try
                     {
-                        var response = await httpClient.GetAsync(url);
-                        response.EnsureSuccessStatusCode();
-
-                        var jsonResponse = await response.Content.ReadAsStringAsync();
-                        var json = JObject.Parse(jsonResponse);
-                        if (json["status"].ToString() == "OK")
+                        if (r.Latitude == null || r.Longitude == null)
                         {
-                            var elevation = json["results"][0]["elevation"];
-
-                            var prop = new ExploreProperty();
-                            prop.asgPropID = property.asgPropID;
-                            prop.Latitude = property.Latitude;
-                            prop.Longitude = property.Longitude;
-                            prop.Elevation = Convert.ToDouble(elevation);
-
-                            db.InsertProperty(prop);
-
-                            Console.WriteLine($"Elevation for {property.asgPropID} is {elevation} meters.");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Error retrieving elevation for "+ property.asgPropID +": " + json["status"]);
+                            Interlocked.Increment(ref failed);
+                            Console.WriteLine($"skip {r.AsgPropId}: missing lat/lng");
+                            return;
                         }
 
+                        var url = $"https://maps.googleapis.com/maps/api/elevation/json?locations={r.Latitude},{r.Longitude}&key={apiKey}";
+                        var resp = await httpClient.GetAsync(url);
+                        resp.EnsureSuccessStatusCode();
+                        var json = JObject.Parse(await resp.Content.ReadAsStringAsync());
+
+                        var status = json["status"]?.ToString();
+                        if (status != "OK")
+                        {
+                            Interlocked.Increment(ref failed);
+                            Console.WriteLine($"{r.AsgPropId}: Google status={status}");
+                            return;
+                        }
+
+                        var elevation = Convert.ToDouble(json["results"]?[0]?["elevation"]);
+                        googleResults[r.AsgPropId] = elevation;
+                        db.InsertElevation(r.AsgPropId, r.Latitude, r.Longitude, elevation, r.CBSAName);
+                        Interlocked.Increment(ref success);
+                        Console.WriteLine($"{r.AsgPropId}: {elevation:F2} m");
                     }
-                    catch (HttpRequestException e)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine($"Request for {property.asgPropID} had exception: {e.Message}");
+                        Interlocked.Increment(ref failed);
+                        Console.WriteLine($"{r.AsgPropId}: {ex.Message}");
                     }
                     finally
                     {
-                        semaphore.Release();                // ← Added: free up the slot
+                        semaphore.Release();
                     }
-
-
                 }));
             }
-
             await Task.WhenAll(tasks);
+            Console.WriteLine($"Google calls done. success={success}  failed={failed}");
 
-            Console.WriteLine($"✅ All {tasks.Count} API calls completed at {DateTime.Now:O}");
+            // 5) Final lookup for Excel:  asg_prop_id -> (elevation, source)
+            var final = new Dictionary<long, (double Elevation, string Source)>();
+            foreach (var asgId in firstByAsg.Keys)
+                if (cache.TryGetValue(asgId, out var elev))
+                    final[asgId] = (elev, "Cache");
+            foreach (var kv in googleResults)
+                final[kv.Key] = (kv.Value, "Google");
 
-        }
-
-
-        static async Task Main_BB(string[] args)
-        {
-            // Replace with your Bing Maps API key
-            string apiKey = "AhEpT8aU53XxyuiEHlk5ALpwY5gEzv06TvRkrn9aVKu0Zc4hH3geNHse2tbKHold"; // Insert your Bing Maps API key here
-            string latitude = "26.556229634512775"; // Example latitude
-            string longitude = "-81.96006792181716"; // Example longitude
-
-            string url = $"http://dev.virtualearth.net/REST/v1/Elevation/List?points={latitude},{longitude}&key={apiKey}";
-                            //http://dev.virtualearth.net/REST/v1/Elevation/List?points={lat1,long1,lat2,long2,latN,longnN}&heights={heights}&key={BingMapsKey}
-
-            try
-            {
-                var response = await httpClient.GetAsync(url);
-                response.EnsureSuccessStatusCode();
-
-                var jsonResponse = await response.Content.ReadAsStringAsync();
-                var elevationResponse = JsonConvert.DeserializeObject<BingElevationResponse>(jsonResponse);
-
-                // Accessing elevation data from the response
-                //var elevation = json["resourceSets"][0]["resources"][0]["elevations"][0].Value<double>();
-                //Console.WriteLine($"Elevation at {latitude}, {longitude}: {elevation} meters");
-                Console.WriteLine(elevationResponse);
-
-                //elevationResponse.ResourceSets[0].Resources[0].Elevations[0]
-            }
-            catch (HttpRequestException e)
-            {
-                Console.WriteLine($"Request error: {e.Message}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unexpected error: {ex.Message}");
-            }
+            // 6) Write Excel
+            Console.WriteLine($"Writing {outputPath}");
+            ExcelHelper.WriteResults(excelPath, outputPath, assetToAsg, final);
+            Console.WriteLine("Done.");
         }
     }
 }

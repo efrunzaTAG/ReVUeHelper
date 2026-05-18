@@ -1,0 +1,11 @@
+# Claude Code / local workspace
+.claude/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+[Bb]in/
+[Oo]bj/
