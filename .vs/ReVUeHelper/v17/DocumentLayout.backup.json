@@ -1,0 +1,198 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50F2CE5D-EA40-4F64-A290-11EC7EFDA19F}|ReVUeHelper_Explore\\ReVUeHelper_Explore.csproj|c:\\users\\efrunza.corp\\source\\repos\\revuehelper\\revuehelper_explore\\dbproxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50F2CE5D-EA40-4F64-A290-11EC7EFDA19F}|ReVUeHelper_Explore\\ReVUeHelper_Explore.csproj|solutionrelative:revuehelper_explore\\dbproxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50F2CE5D-EA40-4F64-A290-11EC7EFDA19F}|ReVUeHelper_Explore\\ReVUeHelper_Explore.csproj|c:\\users\\efrunza.corp\\source\\repos\\revuehelper\\revuehelper_explore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50F2CE5D-EA40-4F64-A290-11EC7EFDA19F}|ReVUeHelper_Explore\\ReVUeHelper_Explore.csproj|solutionrelative:revuehelper_explore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50F2CE5D-EA40-4F64-A290-11EC7EFDA19F}|ReVUeHelper_Explore\\ReVUeHelper_Explore.csproj|c:\\users\\efrunza.corp\\source\\repos\\revuehelper\\revuehelper_explore\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50F2CE5D-EA40-4F64-A290-11EC7EFDA19F}|ReVUeHelper_Explore\\ReVUeHelper_Explore.csproj|solutionrelative:revuehelper_explore\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64F23A0D-BA74-481E-8A2F-B885B8B6F845}|ReVUeHelper_Floods\\ReVUeHelper_Floods.csproj|C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\revuehelper_floods\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64F23A0D-BA74-481E-8A2F-B885B8B6F845}|ReVUeHelper_Floods\\ReVUeHelper_Floods.csproj|solutionrelative:revuehelper_floods\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2CE12E1-CA34-4537-BC84-6D84848DF0FD}|ReVUeHelper_MLS\\ReVUeHelper_MLS.csproj|C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\revuehelper_mls\\mlsimports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2CE12E1-CA34-4537-BC84-6D84848DF0FD}|ReVUeHelper_MLS\\ReVUeHelper_MLS.csproj|solutionrelative:revuehelper_mls\\mlsimports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2CE12E1-CA34-4537-BC84-6D84848DF0FD}|ReVUeHelper_MLS\\ReVUeHelper_MLS.csproj|C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\revuehelper_mls\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2CE12E1-CA34-4537-BC84-6D84848DF0FD}|ReVUeHelper_MLS\\ReVUeHelper_MLS.csproj|solutionrelative:revuehelper_mls\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F116282-53B3-4163-A94B-9480B94DD6C7}|ReVUeHelper_OSS\\ReVUeHelper_OSS.csproj|c:\\users\\efrunza.corp\\source\\repos\\revuehelper\\revuehelper_oss\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F116282-53B3-4163-A94B-9480B94DD6C7}|ReVUeHelper_OSS\\ReVUeHelper_OSS.csproj|solutionrelative:revuehelper_oss\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F116282-53B3-4163-A94B-9480B94DD6C7}|ReVUeHelper_OSS\\ReVUeHelper_OSS.csproj|c:\\users\\efrunza.corp\\source\\repos\\revuehelper\\revuehelper_oss\\oppstatusitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F116282-53B3-4163-A94B-9480B94DD6C7}|ReVUeHelper_OSS\\ReVUeHelper_OSS.csproj|solutionrelative:revuehelper_oss\\oppstatusitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{544E1E27-331C-42CA-AD6D-03034BC8367D}|ReVUeHelper_MLSAlerts\\ReVUeHelper_MLSAlerts.csproj|c:\\users\\efrunza.corp\\source\\repos\\revuehelper\\revuehelper_mlsalerts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544E1E27-331C-42CA-AD6D-03034BC8367D}|ReVUeHelper_MLSAlerts\\ReVUeHelper_MLSAlerts.csproj|solutionrelative:revuehelper_mlsalerts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{544E1E27-331C-42CA-AD6D-03034BC8367D}|ReVUeHelper_MLSAlerts\\ReVUeHelper_MLSAlerts.csproj|c:\\users\\efrunza.corp\\source\\repos\\revuehelper\\revuehelper_mlsalerts\\revuedbproxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544E1E27-331C-42CA-AD6D-03034BC8367D}|ReVUeHelper_MLSAlerts\\ReVUeHelper_MLSAlerts.csproj|solutionrelative:revuehelper_mlsalerts\\revuedbproxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 235,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DTOs.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Explore\\DTOs.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_Explore\\DTOs.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Explore\\DTOs.cs",
+              "RelativeToolTip": "ReVUeHelper_Explore\\DTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T19:22:48.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Floods\\Program.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_Floods\\Program.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Floods\\Program.cs",
+              "RelativeToolTip": "ReVUeHelper_Floods\\Program.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAswIEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T22:43:46.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_OSS\\Program.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_OSS\\Program.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_OSS\\Program.cs",
+              "RelativeToolTip": "ReVUeHelper_OSS\\Program.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAEAlwCEAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T22:43:39.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLSAlerts\\Program.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_MLSAlerts\\Program.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLSAlerts\\Program.cs",
+              "RelativeToolTip": "ReVUeHelper_MLSAlerts\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T22:43:35.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ReVUeDbProxy.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLSAlerts\\ReVUeDbProxy.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_MLSAlerts\\ReVUeDbProxy.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLSAlerts\\ReVUeDbProxy.cs",
+              "RelativeToolTip": "ReVUeHelper_MLSAlerts\\ReVUeDbProxy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T22:43:31.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OppStatusItem.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_OSS\\OppStatusItem.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_OSS\\OppStatusItem.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_OSS\\OppStatusItem.cs",
+              "RelativeToolTip": "ReVUeHelper_OSS\\OppStatusItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T22:43:28.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DbProxy.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Explore\\DbProxy.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_Explore\\DbProxy.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Explore\\DbProxy.cs",
+              "RelativeToolTip": "ReVUeHelper_Explore\\DbProxy.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAEoAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:10:28.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Explore\\Program.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_Explore\\Program.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_Explore\\Program.cs",
+              "RelativeToolTip": "ReVUeHelper_Explore\\Program.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAawEsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T15:01:28.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MlsImports.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLS\\MlsImports.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_MLS\\MlsImports.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLS\\MlsImports.cs",
+              "RelativeToolTip": "ReVUeHelper_MLS\\MlsImports.cs",
+              "ViewState": "AgIAANUAAAAAAAAAAAAmwP0AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:35:57.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLS\\Program.cs",
+              "RelativeDocumentMoniker": "ReVUeHelper_MLS\\Program.cs",
+              "ToolTip": "C:\\Users\\efrunza.CORP\\source\\repos\\ReVUeHelper\\ReVUeHelper_MLS\\Program.cs",
+              "RelativeToolTip": "ReVUeHelper_MLS\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwCsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:35:54.947Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

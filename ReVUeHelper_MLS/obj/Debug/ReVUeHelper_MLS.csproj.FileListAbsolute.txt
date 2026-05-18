@@ -74,8 +74,8 @@ C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\bin\Debug\ru\Micr
 C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHelper_MLS.csproj.AssemblyReference.cache
-C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHelper_MLS.csproj.SuggestedBindingRedirects.cache
 C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHelper_MLS.csproj.CoreCompileInputs.cache
-C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHelper_MLS.csproj.CopyComplete
 C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHelper_MLS.exe
 C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHelper_MLS.pdb
+C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHel.1CE286B3.Up2Date
+C:\Users\efrunza.CORP\source\repos\ReVUeHelper\ReVUeHelper_MLS\obj\Debug\ReVUeHelper_MLS.exe.config

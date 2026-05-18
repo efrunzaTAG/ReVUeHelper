@@ -39,32 +39,24 @@ namespace ReVUeHelper_MLS
         public string County { get; set; }
         public bool? HasPool { get; set; }
         public string Notes { get; set; }
+        public string SaleCircumstances { get; set; }
         public string Subdivision { get; set; }
         public string Neighborhood { get; set; }
         public int? DaysOnMarket { get; set; }
         public string MlsBoardAbbreviation { get; set; }
         public string OccupancyStatus { get; set; }
-
         public string ListingBrokerName { get; set; }
         public string ListingAgentName { get; set; }
         public string ListingAgentPhone { get; set; }
         public string ListingAgentEmail { get; set; }
-
         public string LotNumber { get; set; }
         public string Block { get; set; }
         public string LegalDescription { get; set; }
         public string ParcelId { get; set; }
         public string DeedBook { get; set; }
         public string PageNumber { get; set; }
-
-        public string SubLotNumber { get; set; }
-        public string PlatBook { get; set; }
-        public string PlatPage { get; set; }
-        public decimal? ModelRent { get; set; }
-        public decimal? ModelArv { get; set; }
-        public decimal? ModelNoi { get; set; }
-        public decimal? ModelExpectedSalesPrice { get; set; }
         public decimal? SellerHoa { get; set; }
+        public string UploadReason { get; set; }
 
         #endregion
     }
@@ -222,17 +214,40 @@ namespace ReVUeHelper_MLS
                 for (int i = MlsAutoImportItems.Count; i-- > 0;)
                 {
                     var MlsAutoImportItem = MlsAutoImportItems[i];
+
+                    //MlsAutoImportItems[i].UploadReason = "NEW";
+
                     if (
                         1 == 0
-                            //use this to skip some addresses (used for 2nd round of failed validation from PropMaster)
+                        //use this to skip some addresses (used for 2nd round of failed validation from PropMaster)
 
-                            //|| (MlsAutoImportItem.Street == "159 DA VINCI" && MlsAutoImportItem.ZipCode == "78258")
-                            //|| (MlsAutoImportItem.Street == "12203 COMMANDER DR" && MlsAutoImportItem.ZipCode == "78252")
-                            //||  (MlsAutoImportItem.Street == "" && MlsAutoImportItem.ZipCode == "")
-                            )
+                        //|| (MlsAutoImportItem.Street == "159 DA VINCI" && MlsAutoImportItem.ZipCode == "78258")
+                        //|| (MlsAutoImportItem.Street == "12203 COMMANDER DR" && MlsAutoImportItem.ZipCode == "78252")
+                        //||  (MlsAutoImportItem.Street == "" && MlsAutoImportItem.ZipCode == "")
+
+                        //|| (MlsAutoImportItem.Street == "1205 CHESTER AVE" && MlsAutoImportItem.ZipCode == "33844") //20240626
+
+
+                        //MlsAutoImportItem.Street != "3664 WARTRACE DR"
+
+                        //MlsAutoImportItem.State != "AZ"                        
+                        //!Array.Exists(new string[] {"22406768", "22407924", "6699157", "6699171", "6659605" }, item => item == MlsAutoImportItem.MlsId)
+                        //MlsAutoImportItem.State != "AZ" || MlsAutoImportItem.Street.Contains("1653 W KURALT DR")
+
+                        //|| (MlsAutoImportItem.Street == "1775 JODY DR N E" && MlsAutoImportItem.ZipCode == "30066")
+
+                        //|| (MlsAutoImportItem.Street != "3519 CALUMET RD")
+                        //
+
+                        )
                     {
                         MlsAutoImportItems.RemoveAt(i);
                     }
+
+                    //if (MlsAutoImportItem.Street == "5155 OVERLAND CT")
+                    //{
+                    //    MlsAutoImportItem.AskingPrice = 250000;
+                    //}
                 }
 
 
