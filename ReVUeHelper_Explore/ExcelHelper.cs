@@ -56,6 +56,7 @@ namespace ReVUeHelper_Explore
             string inputPath,
             string outputPath,
             Dictionary<long, long> assetToAsg,
+            Dictionary<long, ConstellationRow> firstByAsg,
             Dictionary<long, (double Elevation, string Source)> elevationByAsg,
             string columnName = DefaultAssetColumn)
         {
@@ -71,9 +72,13 @@ namespace ReVUeHelper_Explore
 
             int elevCol = lastCol + 1;
             int srcCol  = lastCol + 2;
+            int latCol  = lastCol + 3;
+            int lngCol  = lastCol + 4;
             int headerRowNum = headerRow.RowNumber();
             ws.Cell(headerRowNum, elevCol).Value = "Elevation";
             ws.Cell(headerRowNum, srcCol).Value  = "Source";
+            ws.Cell(headerRowNum, latCol).Value  = "Latitude";
+            ws.Cell(headerRowNum, lngCol).Value  = "Longitude";
 
             int lastRow = ws.LastRowUsed()!.RowNumber();
             for (int r = headerRowNum + 1; r <= lastRow; r++)
@@ -81,10 +86,18 @@ namespace ReVUeHelper_Explore
                 var raw = ws.Cell(r, assetCol).GetString().Trim();
                 if (!long.TryParse(raw, out long assetId)) continue;
                 if (!assetToAsg.TryGetValue(assetId, out long asgId)) continue;
-                if (!elevationByAsg.TryGetValue(asgId, out var data)) continue;
 
-                ws.Cell(r, elevCol).Value = data.Elevation;
-                ws.Cell(r, srcCol).Value  = data.Source;
+                if (firstByAsg.TryGetValue(asgId, out var crow))
+                {
+                    if (crow.Latitude  != null) ws.Cell(r, latCol).Value = crow.Latitude.Value;
+                    if (crow.Longitude != null) ws.Cell(r, lngCol).Value = crow.Longitude.Value;
+                }
+
+                if (elevationByAsg.TryGetValue(asgId, out var data))
+                {
+                    ws.Cell(r, elevCol).Value = data.Elevation;
+                    ws.Cell(r, srcCol).Value  = data.Source;
+                }
             }
 
             wb.SaveAs(outputPath);

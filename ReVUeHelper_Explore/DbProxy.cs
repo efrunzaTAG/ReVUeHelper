@@ -52,7 +52,9 @@ namespace ReVUeHelper_Explore
                 UNION
                 SELECT asgPropID, Elevation FROM DBATestBed.dbo.EF_Explore_Elevations_20250516 WITH (NOLOCK) WHERE Elevation IS NOT NULL
                 UNION
-                SELECT asgPropID, Elevation FROM DBATestBed.dbo.EF_Explore_Elevations_20260518 WITH (NOLOCK) WHERE Elevation IS NOT NULL";
+                SELECT asgPropID, Elevation FROM DBATestBed.dbo.EF_Explore_Elevations_20260518 WITH (NOLOCK) WHERE Elevation IS NOT NULL
+                UNION
+                SELECT asgPropID, Elevation FROM DBATestBed.dbo.EF_Explore_Elevations_20260522 WITH (NOLOCK) WHERE Elevation IS NOT NULL";
 
             using var conn = new SqlConnection(DEV_connectionString);
             var rows = conn.Query<(long asgPropID, double Elevation)>(sql);
@@ -67,7 +69,7 @@ namespace ReVUeHelper_Explore
         public void InsertElevation(long asgPropID, double? latitude, double? longitude, double elevation, string? cbsaName)
         {
             const string sql = @"
-                INSERT INTO EF_Explore_Elevations_20260518 (asgPropID, Latitude, Longitude, Elevation, CBSAName)
+                INSERT INTO EF_Explore_Elevations_20260522 (asgPropID, Latitude, Longitude, Elevation, CBSAName)
                 VALUES (@asgPropID, @Latitude, @Longitude, @Elevation, @CBSAName)";
 
             using IDbConnection conn = new SqlConnection(DEV_connectionString);

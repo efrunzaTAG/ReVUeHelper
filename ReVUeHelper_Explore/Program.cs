@@ -21,7 +21,7 @@ namespace ElevationApiExample
         const string GoogleApiKeyEnvVar = "GOOGLE_ELEVATION_API_KEY";
 
         static readonly string DefaultExcelPath =
-            @"C:\Users\efrunza\source\repos\efrunzaTAG\ReVUeHelper\.claude\MSR_Houston_FL_excl_Orlando.xlsx";
+            @"C:\Users\efrunza\source\repos\efrunzaTAG\ReVUeHelper\.claude\MSR All Homes.xlsx";
 
         static async Task Main(string[] args)
         {
@@ -152,7 +152,7 @@ namespace ElevationApiExample
 
             // 6) Write Excel
             Console.WriteLine($"Writing {outputPath}");
-            ExcelHelper.WriteResults(excelPath, outputPath, assetToAsg, final);
+            ExcelHelper.WriteResults(excelPath, outputPath, assetToAsg, firstByAsg, final);
             Console.WriteLine("Done.");
         }
     }
