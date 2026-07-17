@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReVUeHelper_Explore", "ReVU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReVUeHelper_Floods", "ReVUeHelper_Floods\ReVUeHelper_Floods.csproj", "{64F23A0D-BA74-481E-8A2F-B885B8B6F845}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReVUeHelper_Monitor", "ReVUeHelper_Monitor\ReVUeHelper_Monitor.csproj", "{47C013DA-E2FF-45D8-A607-C6DC06376846}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{64F23A0D-BA74-481E-8A2F-B885B8B6F845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64F23A0D-BA74-481E-8A2F-B885B8B6F845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64F23A0D-BA74-481E-8A2F-B885B8B6F845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C013DA-E2FF-45D8-A607-C6DC06376846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C013DA-E2FF-45D8-A607-C6DC06376846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C013DA-E2FF-45D8-A607-C6DC06376846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C013DA-E2FF-45D8-A607-C6DC06376846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

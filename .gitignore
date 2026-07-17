@@ -9,3 +9,6 @@
 # Build output
 [Bb]in/
 [Oo]bj/
+
+# Publish output (publish.ps1 default)
+publish/
